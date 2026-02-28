@@ -122,9 +122,9 @@ def train_loop(
             loss.backward()
             optimizer.step()
             epoch_loss += loss.item()
-            loss_history.append(loss.item())
             
         avg_loss = epoch_loss / len(dataloader)
+        loss_history.append(avg_loss)
         print(f"Epoch {epoch+1}/{epochs} - Loss: {avg_loss:.4f}")
 
         # Feel free to pass additional arguments (like validation dataloader) 
